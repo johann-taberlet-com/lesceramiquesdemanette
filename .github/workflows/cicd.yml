@@ -23,7 +23,8 @@ jobs:
           echo ${{ secrets.BACK_ENV_FILE}} > .env
           npm ci
           NODE_ENV=production npm run build
-          mv build backend
+          mv build ../backend_
+          cd .. && rm -rf backend/ && mv backend_ backend
 
       - name: Install and Build Frontend
         #  Build frontend
@@ -34,7 +35,8 @@ jobs:
           npm i
           npm ci
           NODE_ENV=production npm run build
-          mv build frontend
+          mv build ../frontend_
+          cd .. && rm -rf frontend/ && mv frontend_ frontend
 
       - run: tree -d .
 
@@ -43,8 +45,8 @@ jobs:
         with:
           name: builds
           path: |
-            ./frontend/frontend/
-            ./backend/backend/
+            ./frontend/
+            ./backend/
 
   deploy:
     runs-on: ubuntu-latest
