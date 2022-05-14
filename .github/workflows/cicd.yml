@@ -36,6 +36,7 @@ jobs:
           cd frontend/
           touch .env
           echo ${{ secrets.FRONT_ENV_FILE}} > .env
+          npm i
           npm ci
           NODE_ENV=production npm run build
 
