@@ -33,7 +33,7 @@ jobs:
           touch .env
           echo ${{ secrets.FRONT_ENV_FILE}} > .env
 
-          sed -i '/prepare/d' package.json && npm ci --prod
+          npm i
 
           npm run build
           mv build package.json node_modules ../frontend_
