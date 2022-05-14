@@ -33,12 +33,9 @@ jobs:
           touch .env
           echo ${{ secrets.FRONT_ENV_FILE}} > .env
           npm i
-          npm ci
-          NODE_ENV=production npm run build
+          npm run build
           mv build ../frontend_
           cd .. && rm -rf frontend/ && mv frontend_ frontend
-
-      - run: tree -d .
 
       - name: Upload frontend and backend projects as artifact
         uses: actions/upload-artifact@v3
@@ -58,8 +55,6 @@ jobs:
         with:
           name: builds
           path: ./${{ github.event.repository.name }}
-
-      - run: tree -d .
 
       - name: Deploy project with SSH
         uses: easingthemes/ssh-deploy@v2.1.4
