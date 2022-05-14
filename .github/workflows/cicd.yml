@@ -33,7 +33,7 @@ jobs:
       - name: Install and Build Frontend
         #  Build frontend
         run: |
-          cd ../frontend/
+          cd frontend/
           touch .env
           echo ${{ secrets.FRONT_ENV_FILE}} > .env
           npm ci
