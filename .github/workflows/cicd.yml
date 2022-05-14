@@ -43,8 +43,8 @@ jobs:
         with:
           name: builds
           path: |
-            ./frontend/frontend
-            ./backend/backend
+            ./frontend/frontend/
+            ./backend/backend/
 
   deploy:
     runs-on: ubuntu-latest
