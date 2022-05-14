@@ -55,12 +55,12 @@ jobs:
         uses: actions/download-artifact@master
         with:
           name: backend
-          path: .
+          path: ./backend
       - name: Download frontend artifact
         uses: actions/download-artifact@master
         with:
           name: frontend
-          path: .
+          path: ./frontend
 
       - name: Deploy project with SSH
         uses: easingthemes/ssh-deploy@v2.1.4
@@ -68,5 +68,4 @@ jobs:
           SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
           REMOTE_HOST: ${{ secrets.REMOTE_HOST }}
           REMOTE_USER: ${{ secrets.REMOTE_USER }}
-          SOURCE: .*
-          TARGET: "~/www/lesceramiquesdemanette"
+          TARGET: "~/www/lesceramiquesdemanette/"
