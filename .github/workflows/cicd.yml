@@ -36,7 +36,7 @@ jobs:
           npm i
 
           npm run build
-          mv build package.json node_modules ../frontend_
+          mkdir ../frontend_ && mv build package.json node_modules ../frontend_
           cd .. && rm -rf frontend/ && mv frontend_ frontend
 
       - name: Upload frontend and backend projects as artifact
